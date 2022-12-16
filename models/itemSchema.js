@@ -9,4 +9,4 @@ const itemSchema = new Schema({
   timestamps: true
 });
 
-module.exports = costumeSchema;
+module.exports = itemSchema;
