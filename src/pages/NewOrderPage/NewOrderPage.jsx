@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import CostumeList from '../../components/CostumeList/CostumeList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
-// import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default function NewOrderPage() {
   const [costumeItems, setCostumeItems] = useState([]);
@@ -53,7 +53,7 @@ export default function NewOrderPage() {
           setActiveCat={setActiveCat}
         />
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-        {/* <UserLogOut user={user} setUser={setUser} /> */}
+        <UserLogOut user={user} setUser={setUser} />
       </aside>
       <CostumeList
         costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
