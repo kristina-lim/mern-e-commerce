@@ -37,38 +37,41 @@ export default function NavBar({ user, setUser }) {
         >
           <MDBIcon icon='bars' fas />
         </MDBNavbarToggler>
-
         <MDBCollapse navbar show={showNavRight}>
           <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
             <MDBNavbarItem>
               <MDBNavbarLink>
-                Welcome, {user.name}!
+                <MDBIcon far icon="star" /> Welcome, {user.name}! <MDBIcon far icon="star" />
               </MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='/orders/new'>
-                New Order
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='/orders'>Order History</MDBNavbarLink>
-            </MDBNavbarItem>
-
             <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link'>
-                  Dropdown
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
-                  <MDBDropdownItem link>Another action</MDBDropdownItem>
-                  <MDBDropdownItem link>Something else here</MDBDropdownItem>
+                  <MDBDropdownItem link href='/about'><MDBIcon fas icon="info-circle" /> About</MDBDropdownItem>
+                  <MDBDropdownItem link href='/contact'><MDBIcon fas icon="phone-alt" /> Contact</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
             <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/orders/new'>
+                <MDBIcon fas icon="mask" /> Costumes {/* or shop */}
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink href='/orders'>
+                <MDBIcon fas icon="history" /> Order History
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink to='/cart'>
+                <MDBIcon fas icon="shopping-cart" />
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
               <MDBNavbarLink to='' onClick={handleLogOut}>
-                Log Out
+                <MDBIcon fas icon="sign-out-alt" /> Log Out
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
