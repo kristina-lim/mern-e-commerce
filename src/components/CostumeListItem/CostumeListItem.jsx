@@ -1,3 +1,5 @@
+import './CostumeListItem.css';
+
 export default function CostumeListItem({ costumeItem, handleAddToOrder }) {
   return (
     <div className="CostumeListItem">

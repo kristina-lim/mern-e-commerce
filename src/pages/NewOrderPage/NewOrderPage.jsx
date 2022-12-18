@@ -6,6 +6,7 @@ import CostumeList from '../../components/CostumeList/CostumeList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import './NewOrderPage.css'
 
 export default function NewOrderPage({ user, setUser }) {
   const [costumeItems, setCostumeItems] = useState([]);

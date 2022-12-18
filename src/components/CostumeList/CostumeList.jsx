@@ -1,4 +1,5 @@
 import CostumeListItem from '../CostumeListItem/CostumeListItem';
+import './CostumeList.css';
 
 export default function CostumeList({ costumeItems, handleAddToOrder }) {
   const items = costumeItems.map(item =>
