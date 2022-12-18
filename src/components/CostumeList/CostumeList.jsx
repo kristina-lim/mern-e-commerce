@@ -5,12 +5,12 @@ export default function CostumeList({ costumeItems, handleAddToOrder }) {
   const items = costumeItems.map(item =>
     <CostumeListItem
       key={item._id}
-      menuItem={item}
+      costumeItem={item}
       handleAddToOrder={handleAddToOrder}
     />
   );
   return (
-    <main className="MenuList">
+    <main className="CostumeList">
       {items}
     </main>
   );
