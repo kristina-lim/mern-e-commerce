@@ -1,3 +1,19 @@
+.s-row {
+  border: 1px solid black;
+  min-height: 100vh;
+  margin: 20px 0;
+  display: flex;
+}
+
+.s-col:first-child {
+  flex: 1;
+  border: 1px solid black;
+}
+
+s-col:last-child {
+  flex: 4;
+  border: 1px solid black;
+}
 /* .NewOrderPage {
   height: 100%;
   display: grid;
