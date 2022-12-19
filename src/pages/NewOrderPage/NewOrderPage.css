@@ -10,7 +10,7 @@
 
 .shop-col:first-child h2 {
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  margin-top: 25px;
 }
 
 .shop-col:last-child {
@@ -24,6 +24,15 @@
   margin-bottom: 30px;
 }
 
+.order-row:first-child {
+  display: flex;
+}
+
+.order-col:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 
 /* .NewOrderPage {

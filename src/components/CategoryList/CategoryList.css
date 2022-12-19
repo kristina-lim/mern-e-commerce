@@ -1,7 +1,8 @@
 .CategoryList {
   color: var(--text-light);
   list-style: none;
-  padding: 0;
+  padding: 3vmin;
+  margin: 3vmin;
   font-size: 1.7vw;
 }
 

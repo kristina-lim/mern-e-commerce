@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api';
 import * as ordersAPI from '../../utilities/orders-api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CostumeList from '../../components/CostumeList/CostumeList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
@@ -19,6 +19,7 @@ export default function NewOrderPage({ user, setUser }) {
       const items = await itemsAPI.getAll();
       categoriesRef.current = [...new Set(items.map(item => item.category.name))];
       setCostumeItems(items);
+      setActiveCat(categoriesRef.current[0]);
     }
     getItems();
 
@@ -54,6 +55,7 @@ export default function NewOrderPage({ user, setUser }) {
           activeCat={activeCat}
           setActiveCat={setActiveCat}
         />
+        <Link to='/orders' className='button btn-sm'>PREVIOUS ORDERS</Link>
       </div>
       <div className="shop-col">
         <div className="shop-costumes">
@@ -62,35 +64,16 @@ export default function NewOrderPage({ user, setUser }) {
             handleAddToOrder={handleAddToOrder}
           />
         </div>
-        <div>
-        <OrderDetail
-          order={cart}
-          handleChangeQty={handleChangeQty}
-          handleCheckout={handleCheckout}
-        />
+        <div className='order-row'>
+          <div className='order-col'></div>
+            <OrderDetail
+              order={cart}
+              handleChangeQty={handleChangeQty}
+              handleCheckout={handleCheckout}
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    // <main className="NewOrderPage">
-    //   <aside>
-    //     <CategoryList
-    //       categories={categoriesRef.current}
-    //       activeCat={activeCat}
-    //       setActiveCat={setActiveCat}
-    //     />
-    //     {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-    //     <UserLogOut user={user} setUser={setUser} /> */}
-    //   </aside>
-    //   <CostumeList
-    //     costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
-    //     handleAddToOrder={handleAddToOrder}
-    //   />
-    //   <OrderDetail
-    //     order={cart}
-    //     handleChangeQty={handleChangeQty}
-    //     handleCheckout={handleCheckout}
-    //   />
-    // </main>
   );
 }

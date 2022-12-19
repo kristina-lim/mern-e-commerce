@@ -11,6 +11,5 @@ export function getById(id) {
 }
 
 export function createReview(reviewData, itemId) {
-  console.log('hi');
   return sendRequest(`${BASE_URL}/${itemId}/reviews`, 'POST', reviewData);
 }

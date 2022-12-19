@@ -7,7 +7,7 @@ export default function ReviewCard({ review }) {
     month: 'numeric',
     day: 'numeric'
   }
-
+  
   return(
     <>
       <div>

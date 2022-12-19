@@ -1,14 +1,16 @@
+import { MDBBtn } from 'mdb-react-ui-kit';
 import './CategoryList.css';
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
   const cats = categories.map(cat =>
-    <button
+    <MDBBtn
+      color='warning'
       key={cat}
       className={cat === activeCat ? 'active' : ''}
       onClick={() => setActiveCat(cat)}
     >
       {cat}
-    </button>
+    </MDBBtn>
   );
 
   return (

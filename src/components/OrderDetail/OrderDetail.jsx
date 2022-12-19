@@ -42,7 +42,7 @@ export default function ItemDetail({ order, handleChangeQty, handleCheckout }) {
             </section>
           </>
           :
-          <div className="scared">Scared?</div>
+          <div className="scared">Scared yet?</div>
         }
       </div>
     </div>

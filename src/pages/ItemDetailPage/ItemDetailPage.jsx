@@ -14,6 +14,7 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
     rating: '⭐️⭐️⭐️'
   });
 
+  
   function handleAddReview(evt) {
     evt.preventDefault();
     addReview(newReview, item);
@@ -75,22 +76,21 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
           <option value='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</option>
         </select>
         <MDBBtn className='mb-4' type='submit' block>
-          Post Review
+          Add Review
         </MDBBtn>
-        <MDBRow>
-          <h2>Reviews:</h2>
-          {items.map((item, idx) => (
-            item.reviews === 0 ?
+        <h2>Reviews:</h2>
+          {item.reviews ?
             <p>No reviews yet</p>
-            :
+           : 
           <div>
-            <ReviewCard
-              item={item}
-              key={idx}
+            {item.reviews.map((review, idx) => (
+              <ReviewCard
+                review={review}
+                key={idx}
               />
+            ))}
           </div>
-          ))}
-        </MDBRow>
+          }
       </form>
     </>
   )
