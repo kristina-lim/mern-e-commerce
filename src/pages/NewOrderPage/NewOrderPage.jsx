@@ -46,25 +46,45 @@ export default function NewOrderPage({ user, setUser }) {
   }
 
   return (
-    <main className="NewOrderPage">
-      <aside>
+    <div className='shop-container'>
+    <div className="shop-row">
+      <div className="shop-col">
+        <h2>Category</h2>
         <CategoryList
           categories={categoriesRef.current}
           activeCat={activeCat}
           setActiveCat={setActiveCat}
         />
-        {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-        <UserLogOut user={user} setUser={setUser} /> */}
-      </aside>
-      <CostumeList
-        costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
-        handleAddToOrder={handleAddToOrder}
-      />
-      <OrderDetail
-        order={cart}
-        handleChangeQty={handleChangeQty}
-        handleCheckout={handleCheckout}
-      />
-    </main>
+      </div>
+      <div className="shop-col">
+        <div className="shop-costumes">
+          <CostumeList
+            costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
+            handleAddToOrder={handleAddToOrder}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+    // <main className="NewOrderPage">
+    //   <aside>
+    //     <CategoryList
+    //       categories={categoriesRef.current}
+    //       activeCat={activeCat}
+    //       setActiveCat={setActiveCat}
+    //     />
+    //     {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+    //     <UserLogOut user={user} setUser={setUser} /> */}
+    //   </aside>
+    //   <CostumeList
+    //     costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
+    //     handleAddToOrder={handleAddToOrder}
+    //   />
+    //   <OrderDetail
+    //     order={cart}
+    //     handleChangeQty={handleChangeQty}
+    //     handleCheckout={handleCheckout}
+    //   />
+    // </main>
   );
 }

@@ -1,9 +1,9 @@
-.CostumeListItem {
+.ItemDetail {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 3vmin;
+  justify-content: center;
   padding: 2vmin;
   color: var(--text-light);
   background-color: var(--white);
@@ -12,7 +12,7 @@
   font-size: 4vmin;
 }
 
-.CostumeListItem .emoji {
+.ItemDetail .emoji {
   height: 8vw;
   width: 8vw;
   font-size: 4vw;
@@ -21,23 +21,18 @@
   border-radius: 1vmin;
 }
 
-.CostumeListItem .buy {
+.ItemDetail .buy {
   display: flex;
   flex-direction: column;
 }
 
-.CostumeListItem .buy span {
+.ItemDetail .buy span {
   font-size: 1.7vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.CostumeListItem .button.btn-sm {
-  font-size: 1.5vmin;
-  padding: .6vmin .8vmin;
-}
-
-.CostumeListItem .name {
+.ItemDetailPage .name {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);

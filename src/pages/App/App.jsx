@@ -7,9 +7,10 @@ import HomePage from '../HomePage/HomePage';
 import AboutPage from '../AboutPage/AboutPage';
 import ContactPage from '../ContactPage/ContactPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
+import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
-import Footer from '../../components/Footer/Footer';
+// import Footer from '../../components/Footer/Footer';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -25,10 +26,11 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} />} />
+            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </>
         :
         <AuthPage setUser={setUser}/>

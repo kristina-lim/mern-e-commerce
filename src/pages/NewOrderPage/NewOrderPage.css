@@ -1,19 +1,31 @@
-.s-row {
-  border: 1px solid black;
-  min-height: 100vh;
-  margin: 20px 0;
+.shop-row:first-child {
   display: flex;
 }
 
-.s-col:first-child {
+.shop-col:first-child {
   flex: 1;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
-s-col:last-child {
-  flex: 4;
-  border: 1px solid black;
+.shop-col:first-child h2 {
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
+
+.shop-col:last-child {
+  flex: 5;
+}
+
+.shop-costumes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+
+
 /* .NewOrderPage {
   height: 100%;
   display: grid;
