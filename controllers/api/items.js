@@ -2,8 +2,20 @@ const Item = require('../../models/item');
 
 module.exports = {
   index,
-  show
+  show,
+  createReview
 };
+
+async function createReview(req, res) {
+  try {
+    req.body.user = req.user._id;
+    const review = await Review.create(req.body);
+    review.save();
+    res.json(review);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 async function index(req, res) {
   const items = await Item.find({}).sort('name').populate('category').exec();

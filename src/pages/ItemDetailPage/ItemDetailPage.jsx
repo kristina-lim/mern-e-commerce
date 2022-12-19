@@ -1,13 +1,30 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as itemsAPI from '../../utilities/items-api';
-import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdb-react-ui-kit';
+import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import './ItemDetailPage.css';
 
-export default function ItemDetailPage({ handleAddToOrder }) {
+export default function ItemDetailPage({ items, handleAddToOrder }) {
   const [itemDetail, setItemDetail] = useState({});
   const {itemId} = useParams();
-  
+  const item = items.find((item) => item.name === itemId);
+  console.log(items);
+  const [newReview, setNewReview] = useState({
+    content: '',
+    rating: '⭐️⭐️⭐️'
+  });
+
+  async function handleAddReview(evt, reviewData, itemId) {
+    evt.preventDefault();
+    console.log('hi2');
+    // const newReview = await itemsAPI.createReview(reviewData, itemId);
+    // setNewReview({
+    //   content: '',
+    //   rating: '⭐️⭐️⭐️'
+    // });
+  }
+
   useEffect(() => {
     const getItem = async () => {
       const ItemData = await itemsAPI.getById(itemId);
@@ -17,28 +34,66 @@ export default function ItemDetailPage({ handleAddToOrder }) {
   }, [itemId]);
 
   return (
-    <MDBRow className='mb-3 ItemDetail'>
-      <MDBCol lg='4 name'>
-        {itemDetail.name}
-      </MDBCol>
-      <MDBCol lg='4 emoji flex-ctr-ctr'>
-        {itemDetail.emoji}
-      </MDBCol>
-      <MDBCol lg='4 buy'>
-        <span>${itemDetail.price}</span>
-        <button className="btn-sm" onClick={() => handleAddToOrder(itemDetail._id)}>
-          ADD
-        </button>
-      </MDBCol>
-    </MDBRow>
-    // <div className="">
-    //   <div className="name"></div>
-    //   <br></br>
-    //   <div className="emoji flex-ctr-ctr"></div>
-    //   <div className="buy">
-        
-        
-    //   </div>
-    // </div>
+    <>
+      <MDBRow className='mb-3 ItemDetail'>
+        <MDBCol lg='4 name'>
+          {itemDetail.name}
+        </MDBCol>
+        <MDBCol lg='4 emoji flex-ctr-ctr'>
+          {itemDetail.emoji}
+        </MDBCol>
+        <MDBCol lg='4 buy'>
+          <span>${itemDetail.price}</span>
+          <button className="btn-sm" onClick={() => handleAddToOrder(itemDetail._id)}>
+            ADD
+          </button>
+        </MDBCol>
+      </MDBRow>
+      <form onSubmit={(evt) => handleAddReview(evt, newReview, item._id)}>
+        <MDBRow className='mb-4'>
+          
+        </MDBRow>
+        <MDBInput 
+          name='content'
+          wrapperClass='mb-4' 
+          id='form6Example7' 
+          rows={4} 
+          label='Submit a review!'
+          value={ newReview.content }
+          onChange={(evt) => setNewReview({ ...newReview, [evt.target.name]: evt.target.value })}
+          required
+        />
+        <label htmlFor='select'>Rating</label>
+        <select
+          name='rating'
+          value={ newReview.rating }
+          onChange={(evt) => setNewReview({ ...newReview, [evt.target.name]: evt.target.value })}
+          required
+        >
+          <option value='⭐️'>⭐️</option>
+          <option value='⭐️⭐️'>⭐️⭐️</option>
+          <option value='⭐️⭐️⭐️'>⭐️⭐️⭐️</option>
+          <option value='⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️</option>
+          <option value='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</option>
+        </select>
+        <MDBBtn className='mb-4' type='submit' block>
+          Post Review
+        </MDBBtn>
+        <MDBRow>
+          <h2>Reviews:</h2>
+          {items.map((item, idx) => (
+            item.reviews === 0 ?
+            <p>No reviews yet</p>
+            :
+          <div>
+            <ReviewCard
+              item={item}
+              key={idx}
+              />
+          </div>
+          ))}
+        </MDBRow>
+      </form>
+    </>
   )
 }

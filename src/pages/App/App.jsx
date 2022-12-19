@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
+import * as itemsAPI from '../../utilities/items-api';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
 import AboutPage from '../AboutPage/AboutPage';
@@ -14,7 +15,17 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [items, setItems] = useState([]);
+  const [reviews, setReviews] = useState([]);
   
+  useEffect(function() {
+    async function getItems() {
+      const items = await itemsAPI.getAll();
+      setItems(items);
+    }
+    getItems();
+  }, []);
+
   return (
     <main className="App">
       { user ?
@@ -26,7 +37,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} />} />
-            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} />} />
+            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>

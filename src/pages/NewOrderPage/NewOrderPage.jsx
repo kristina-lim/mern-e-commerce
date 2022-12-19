@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import CostumeList from '../../components/CostumeList/CostumeList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
-// import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import './NewOrderPage.css'
 
 export default function NewOrderPage({ user, setUser }) {
@@ -62,6 +61,13 @@ export default function NewOrderPage({ user, setUser }) {
             costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
             handleAddToOrder={handleAddToOrder}
           />
+        </div>
+        <div>
+        <OrderDetail
+          order={cart}
+          handleChangeQty={handleChangeQty}
+          handleCheckout={handleCheckout}
+        />
         </div>
       </div>
     </div>

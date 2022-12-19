@@ -9,3 +9,8 @@ export function getAll() {
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export function createReview(reviewData, itemId) {
+  console.log('hi');
+  return sendRequest(`${BASE_URL}/${itemId}/reviews`, 'POST', reviewData);
+}
