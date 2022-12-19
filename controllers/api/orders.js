@@ -14,8 +14,13 @@ async function getAllForUser(req, res) {
 }
 
 async function cart(req, res) {
-  const cart = await Order.getCart(req.user._id);
-  res.json(cart);
+  try {
+    const cart = await Order.getCart(req.user._id);
+    console.log(cart);
+    res.json(cart);
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 async function addToCart(req, res) {

@@ -27,8 +27,8 @@ export default function App() {
   }, []);
 
   async function addReview(review, item) {
-    const newReview = await itemsAPI.createReview(review, item);
-    setReviews([...reviews, newReview]);
+    const returnedItem = await itemsAPI.createReview(review, item);
+    setReviews([...returnedItem.reviews]);
   }
 
   return (

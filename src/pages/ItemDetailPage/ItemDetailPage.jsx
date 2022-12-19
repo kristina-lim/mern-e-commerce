@@ -6,18 +6,16 @@ import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import './ItemDetailPage.css';
 
 export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
-  const [itemDetail, setItemDetail] = useState({});
+  const [itemDetail, setItemDetail] = useState(null);
   const {itemId} = useParams();
-  const item = items.find((item) => item.name === itemId);
   const [newReview, setNewReview] = useState({
     content: '',
     rating: '⭐️⭐️⭐️'
   });
-
   
-  function handleAddReview(evt) {
+  function handleAddReview(evt, id) {
     evt.preventDefault();
-    addReview(newReview, item);
+    addReview(newReview, id);
     setNewReview({
       content: '',
       rating: '⭐️⭐️⭐️'
@@ -25,15 +23,20 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
   }
 
   useEffect(() => {
-    const getItem = async () => {
-      const ItemData = await itemsAPI.getById(itemId);
-      setItemDetail(ItemData);
+    function getItem() {
+      const item = items.filter(function(i) {
+        if (i._id === itemId) return i;
+      })
+      setItemDetail(item[0]);
     }
     getItem();
   }, [itemId]);
 
   return (
     <>
+      {itemDetail ? 
+        <>
+        
       <MDBRow className='mb-3 ItemDetail'>
         <MDBCol lg='4 name'>
           {itemDetail.name}
@@ -48,7 +51,7 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
           </button>
         </MDBCol>
       </MDBRow>
-      <form onSubmit={handleAddReview}>
+      <form onSubmit={(evt) => handleAddReview(evt, itemDetail._id)}>
         <MDBRow className='mb-4'>
           
         </MDBRow>
@@ -79,11 +82,11 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
           Add Review
         </MDBBtn>
         <h2>Reviews:</h2>
-          {item.reviews ?
+          {itemDetail.reviews.length === 0 ?
             <p>No reviews yet</p>
            : 
           <div>
-            {item.reviews.map((review, idx) => (
+            {itemDetail.reviews.map((review, idx) => (
               <ReviewCard
                 review={review}
                 key={idx}
@@ -92,6 +95,10 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
           </div>
           }
       </form>
+      </>
+      :
+      ""
+      }
     </>
   )
 }

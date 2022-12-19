@@ -8,11 +8,14 @@ module.exports = {
 
 async function createReview(req, res) {
   try {
+    console.log('create review', req.body, req.params.id);
     req.body.user = req.user._id;
     const item = await Item.findById(req.params.id);
     item.reviews.push(req.body);
+    await item.save();
     res.json(item);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 }

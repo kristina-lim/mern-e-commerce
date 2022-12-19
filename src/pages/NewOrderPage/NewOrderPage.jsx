@@ -25,6 +25,7 @@ export default function NewOrderPage({ user, setUser }) {
 
     async function getCart() {
       const cart = await ordersAPI.getCart();
+      console.log(cart);
       setCart(cart);
     }
     getCart();
