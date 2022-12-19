@@ -36,52 +36,52 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
     <>
       {itemDetail ? 
         <>
-        
-      <MDBRow className='mb-3 ItemDetail'>
-        <MDBCol lg='4 name'>
-          {itemDetail.name}
-        </MDBCol>
-        <MDBCol lg='4 emoji flex-ctr-ctr'>
-          {itemDetail.emoji}
-        </MDBCol>
-        <MDBCol lg='4 buy'>
-          <span>${itemDetail.price}</span>
-          <button className="btn-sm" onClick={() => handleAddToOrder(itemDetail._id)}>
-            ADD
-          </button>
-        </MDBCol>
-      </MDBRow>
-      <form onSubmit={(evt) => handleAddReview(evt, itemDetail._id)}>
-        <MDBRow className='mb-4'>
-          
-        </MDBRow>
-        <MDBInput 
-          name='content'
-          wrapperClass='mb-4' 
-          id='form6Example7' 
-          rows={4} 
-          label='Submit a review!'
-          value={ newReview.content }
-          onChange={(evt) => setNewReview({ ...newReview, [evt.target.name]: evt.target.value })}
-          required
-        />
-        <label htmlFor='select'>Rating</label>
-        <select
-          name='rating'
-          value={ newReview.rating }
-          onChange={(evt) => setNewReview({ ...newReview, [evt.target.name]: evt.target.value })}
-          required
-        >
-          <option value='⭐️'>⭐️</option>
-          <option value='⭐️⭐️'>⭐️⭐️</option>
-          <option value='⭐️⭐️⭐️'>⭐️⭐️⭐️</option>
-          <option value='⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️</option>
-          <option value='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</option>
-        </select>
-        <MDBBtn className='mb-4' type='submit' block>
-          Add Review
-        </MDBBtn>
-        <h2>Reviews:</h2>
+          <MDBRow className='mb-3 ItemDetail'>
+            <MDBCol lg='4 name'>
+              {itemDetail.name}
+            </MDBCol>
+            <MDBCol lg='4 emoji flex-ctr-ctr'>
+              {itemDetail.emoji}
+            </MDBCol>
+            <MDBCol lg='4 buy'>
+              <span>${itemDetail.price}</span>
+              <button className="btn-sm" onClick={() => handleAddToOrder(itemDetail._id)}>
+                ADD
+              </button>
+            </MDBCol>
+          </MDBRow>
+          <form onSubmit={(evt) => handleAddReview(evt, itemDetail._id)}>
+            <MDBRow className='mb-4'>
+              
+            </MDBRow>
+            <MDBInput 
+              name='content'
+              wrapperClass='mb-4' 
+              id='form6Example7' 
+              rows={4} 
+              label='Submit a review!'
+              value={ newReview.content }
+              onChange={(evt) => setNewReview({ ...newReview, [evt.target.name]: evt.target.value })}
+              required
+            />
+            <label htmlFor='select'>Rating</label>
+            <select
+              name='rating'
+              value={ newReview.rating }
+              onChange={(evt) => setNewReview({ ...newReview, [evt.target.name]: evt.target.value })}
+              required
+            >
+              <option value='⭐️'>⭐️</option>
+              <option value='⭐️⭐️'>⭐️⭐️</option>
+              <option value='⭐️⭐️⭐️'>⭐️⭐️⭐️</option>
+              <option value='⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️</option>
+              <option value='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</option>
+            </select>
+            <MDBBtn className='mb-4' type='submit' block>
+              Add Review
+            </MDBBtn>
+          </form>
+          <h2>Reviews:</h2>
           {itemDetail.reviews.length === 0 ?
             <p>No reviews yet</p>
            : 
@@ -94,10 +94,9 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
             ))}
           </div>
           }
-      </form>
-      </>
-      :
-      ""
+        </>
+        :
+        ""
       }
     </>
   )

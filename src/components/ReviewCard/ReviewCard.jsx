@@ -1,3 +1,14 @@
+import React from 'react';
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBRow,
+  MDBCol,
+  MDBBtn
+} from 'mdb-react-ui-kit';
+
 export default function ReviewCard({ review }) {
   console.log(review);
   const date = new Date(review.createdAt);
@@ -10,18 +21,32 @@ export default function ReviewCard({ review }) {
   
   return(
     <>
-      <div>
-        {review.content}
-      </div>
-      <div>
-        Rating: {review.rating}
-      </div>
-      <div>
-        Posted by {review.user}
-      </div>
-      <div>
-        Created on {date.toLocaleDateString(undefined, dateOptions)}
-      </div>
+      <MDBCard>
+        <MDBCardBody>
+          <MDBCardTitle>{review.user}</MDBCardTitle>
+          <MDBCardText>
+            Rating: {review.rating}
+          </MDBCardText>
+          <MDBCardText>
+            {review.content}
+          </MDBCardText>
+          <MDBCardText>
+            Created on {date.toLocaleDateString(undefined, dateOptions)}
+          </MDBCardText>
+          <MDBRow>
+            <MDBCol>
+              <MDBBtn color='warning'>
+                Edit
+              </MDBBtn>
+            </MDBCol>
+            <MDBCol>
+              <MDBBtn color='danger'>
+                Delete
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
     </>
   ) 
 }
