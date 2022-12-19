@@ -1,16 +1,17 @@
 export default function ReviewCard({ review }) {
-  // const date = new Date(review.createdAt);
-  // const dateOptions = {
-  //   weekday: 'long',
-  //   year: 'numeric',
-  //   month: 'numeric',
-  //   day: 'numeric'
-  // }
+  console.log(review);
+  const date = new Date(review.createdAt);
+  const dateOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  }
 
   return(
     <>
       <div>
-        {/* {review.content} */}
+        {review.content}
       </div>
       <div>
         Rating: {review.rating}
@@ -19,7 +20,7 @@ export default function ReviewCard({ review }) {
         Posted by {review.user}
       </div>
       <div>
-        {/* Created on {date.toLocaleDateString(undefined, dateOptions)} */}
+        Created on {date.toLocaleDateString(undefined, dateOptions)}
       </div>
     </>
   ) 

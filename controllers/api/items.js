@@ -9,9 +9,9 @@ module.exports = {
 async function createReview(req, res) {
   try {
     req.body.user = req.user._id;
-    const review = await Review.create(req.body);
-    review.save();
-    res.json(review);
+    const item = await Item.findById(req.params.id);
+    item.reviews.push(req.body);
+    res.json(item);
   } catch (err) {
     res.status(400).json(err);
   }

@@ -5,24 +5,22 @@ import { MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdb-react-ui-kit';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import './ItemDetailPage.css';
 
-export default function ItemDetailPage({ items, handleAddToOrder }) {
+export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
   const [itemDetail, setItemDetail] = useState({});
   const {itemId} = useParams();
   const item = items.find((item) => item.name === itemId);
-  console.log(items);
   const [newReview, setNewReview] = useState({
     content: '',
     rating: '⭐️⭐️⭐️'
   });
 
-  async function handleAddReview(evt, reviewData, itemId) {
+  function handleAddReview(evt) {
     evt.preventDefault();
-    console.log('hi2');
-    // const newReview = await itemsAPI.createReview(reviewData, itemId);
-    // setNewReview({
-    //   content: '',
-    //   rating: '⭐️⭐️⭐️'
-    // });
+    addReview(newReview, item);
+    setNewReview({
+      content: '',
+      rating: '⭐️⭐️⭐️'
+    });
   }
 
   useEffect(() => {
@@ -49,7 +47,7 @@ export default function ItemDetailPage({ items, handleAddToOrder }) {
           </button>
         </MDBCol>
       </MDBRow>
-      <form onSubmit={(evt) => handleAddReview(evt, newReview, item._id)}>
+      <form onSubmit={handleAddReview}>
         <MDBRow className='mb-4'>
           
         </MDBRow>

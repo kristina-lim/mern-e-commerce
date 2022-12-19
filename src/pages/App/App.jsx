@@ -26,6 +26,11 @@ export default function App() {
     getItems();
   }, []);
 
+  async function addReview(review, item) {
+    const newReview = await itemsAPI.createReview(review, item);
+    setReviews([...reviews, newReview]);
+  }
+
   return (
     <main className="App">
       { user ?
@@ -37,7 +42,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} />} />
-            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} />} />
+            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} addReview={addReview} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>
