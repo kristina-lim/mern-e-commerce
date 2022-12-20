@@ -59,6 +59,12 @@ export default function App() {
     setReviews([...returnedItem.reviews]);
   }
 
+  async function handleDeleteReview(reviewId) {
+    await itemsAPI.deleteReview(reviewId);
+    const remainingReviews = reviews.filter(review => review._id !== reviewId);
+    setReviews(remainingReviews);
+  }
+
   return (
     <main className="App">
       { user ?
@@ -70,7 +76,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} />} />
-            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} addReview={addReview} handleAddToOrder={handleAddToOrder} />} />
+            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} addReview={addReview} handleAddToOrder={handleAddToOrder} handleDeleteReview={handleDeleteReview} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>
