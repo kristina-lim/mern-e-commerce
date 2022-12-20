@@ -9,6 +9,6 @@ router.get('/:id', itemsCtrl.show);
 // POST /api/items/:id/reviews
 router.post('/:id/reviews', itemsCtrl.createReview);
 // DELETE /api/items/:id/reviews/:id
-router.delete('/:id/reviews/:id', itemsCtrl.deleteReview);
+router.delete('/:id/reviews/:reviewId', itemsCtrl.deleteReview);
 
 module.exports = router;

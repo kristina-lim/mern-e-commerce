@@ -8,10 +8,10 @@ module.exports = {
 };
 
 async function deleteReview(req, res) {
-  console.log('hi maxy :)');
-  const item = await Item.findOne({itemId: req.params.id});
+  const item = await Item.findById(req.params.id);
   const reviewDelete = item.reviews.id(req.params.reviewId);
-  item.reviews.remove(reviewDelete);
+  const indexReview = item.reviews.indexOf(reviewDelete);
+  item.reviews.splice(indexReview, 1);
   await item.save();
   res.json(item);
 }

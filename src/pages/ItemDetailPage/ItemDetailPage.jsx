@@ -87,10 +87,10 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview, han
           <div>
             {itemDetail.reviews.map((review, idx) => (
               <ReviewCard
-                items={items}
                 review={review}
-                key={idx}
+                itemId={itemId}
                 handleDeleteReview={handleDeleteReview}
+                key={idx}
               />
             ))}
           </div>
