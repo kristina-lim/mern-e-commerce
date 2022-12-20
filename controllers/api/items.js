@@ -8,6 +8,7 @@ module.exports = {
 };
 
 async function deleteReview(req, res) {
+  console.log('hi maxy :)');
   const item = await Item.findOne({itemId: req.params.id});
   const reviewDelete = item.reviews.id(req.params.reviewId);
   item.reviews.remove(reviewDelete);
@@ -17,7 +18,6 @@ async function deleteReview(req, res) {
 
 async function createReview(req, res) {
   try {
-    console.log('create review', req.body, req.params.id);
     req.body.user = req.user._id;
     const item = await Item.findById(req.params.id);
     item.reviews.push(req.body);

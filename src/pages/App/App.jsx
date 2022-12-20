@@ -59,8 +59,8 @@ export default function App() {
     setReviews([...returnedItem.reviews]);
   }
 
-  async function handleDeleteReview(reviewId) {
-    await itemsAPI.deleteReview(reviewId);
+  async function handleDeleteReview(itemId, reviewId) {
+    await itemsAPI.deleteReview(itemId, reviewId);
     const remainingReviews = reviews.filter(review => review._id !== reviewId);
     setReviews(remainingReviews);
   }

@@ -10,7 +10,6 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function ReviewCard({ review, handleDeleteReview }) {
-  console.log(review);
   const date = new Date(review.createdAt);
   const dateOptions = {
     weekday: 'long',
