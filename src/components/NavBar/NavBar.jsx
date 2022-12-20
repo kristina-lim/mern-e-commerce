@@ -16,7 +16,7 @@ import {
   MDBDropdownItem,
 } from 'mdb-react-ui-kit';
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ user, setUser, showCart, setShowCart }) {
   const [showNavRight, setShowNavRight] = useState(false);
 
   function handleLogOut() {
@@ -65,7 +65,7 @@ export default function NavBar({ user, setUser }) {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink to='/cart'>
+              <MDBNavbarLink onClick={() => setShowCart(!showCart)}>
                 <MDBIcon fas icon="shopping-cart" />
               </MDBNavbarLink>
             </MDBNavbarItem>

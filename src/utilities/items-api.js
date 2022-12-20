@@ -13,3 +13,7 @@ export function getById(id) {
 export function createReview(reviewData, itemId) {
   return sendRequest(`${BASE_URL}/${itemId}/reviews`, 'POST', reviewData);
 }
+
+export function deleteReview(itemId, reviewId) {
+  return sendRequest(`${BASE_URL}/${itemId}/reviews/${reviewId}`, 'DELETE');
+}

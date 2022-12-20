@@ -1,4 +1,5 @@
 import LineItem from '../LineItem/LineItem';
+import './OrderDetail.css';
 
 // Used to display the details of any order, including the cart (unpaid order)
 export default function ItemDetail({ order, handleChangeQty, handleCheckout }) {
@@ -42,7 +43,7 @@ export default function ItemDetail({ order, handleChangeQty, handleCheckout }) {
             </section>
           </>
           :
-          <div className="scared">Scared yet?</div>
+          <div className="scared">Did you get what you need?</div>
         }
       </div>
     </div>

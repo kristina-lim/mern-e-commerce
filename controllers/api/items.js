@@ -3,8 +3,17 @@ const Item = require('../../models/item');
 module.exports = {
   index,
   show,
-  createReview
+  createReview,
+  deleteReview
 };
+
+async function deleteReview(req, res) {
+  const item = await Item.findOne({itemId: req.params.id});
+  const reviewDelete = item.reviews.id(req.params.reviewId);
+  item.reviews.remove(reviewDelete);
+  await item.save();
+  res.json(item);
+}
 
 async function createReview(req, res) {
   try {

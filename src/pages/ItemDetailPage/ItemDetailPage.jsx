@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import * as itemsAPI from '../../utilities/items-api';
 import { MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdb-react-ui-kit';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import './ItemDetailPage.css';
 
-export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
+export default function ItemDetailPage({ items, handleAddToOrder, addReview, handleDeleteReview }) {
   const [itemDetail, setItemDetail] = useState(null);
   const {itemId} = useParams();
   const [newReview, setNewReview] = useState({
@@ -88,8 +87,10 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview }) {
           <div>
             {itemDetail.reviews.map((review, idx) => (
               <ReviewCard
+                items={items}
                 review={review}
                 key={idx}
+                handleDeleteReview={handleDeleteReview}
               />
             ))}
           </div>

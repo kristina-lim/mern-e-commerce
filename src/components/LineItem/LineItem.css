@@ -1,4 +1,4 @@
-/* .LineItem {
+.LineItem {
   width: 100%;
   display: grid;
   grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;
@@ -29,5 +29,5 @@
 
 .LineItem button {
   margin: 0;
-} */
+}
 

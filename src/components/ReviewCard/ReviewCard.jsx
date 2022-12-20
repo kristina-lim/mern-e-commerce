@@ -9,7 +9,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 
-export default function ReviewCard({ review }) {
+export default function ReviewCard({ review, handleDeleteReview }) {
   console.log(review);
   const date = new Date(review.createdAt);
   const dateOptions = {
@@ -40,7 +40,7 @@ export default function ReviewCard({ review }) {
               </MDBBtn>
             </MDBCol>
             <MDBCol>
-              <MDBBtn color='danger'>
+              <MDBBtn color='danger' onClick={() => handleDeleteReview(review._id)}>
                 Delete
               </MDBBtn>
             </MDBCol>

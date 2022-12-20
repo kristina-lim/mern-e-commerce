@@ -3,7 +3,6 @@ import sendRequest from './send-request';
 const BASE_URL = '/api/orders';
 
 export function getCart() {
-  console.log('get CART!');
   return sendRequest(`${BASE_URL}/cart`);
 }
 
