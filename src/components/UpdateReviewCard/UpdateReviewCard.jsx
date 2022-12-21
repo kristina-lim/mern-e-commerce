@@ -6,7 +6,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 
-export default function UpdateReviewForm({ review, reviews, showCard, setShowCard, itemDetail, handleUpdateReview }) {
+export default function UpdateReviewForm({ review, reviews, showCard, setShowCard, itemDetail, handleUpdateReview, setCurrentReview }) {
   const reviewId  = review._id;
   const updatedReview = reviews.find((review) => review._id === reviewId);
   const [reviewFormData, setReviewFormData] = useState({
@@ -20,6 +20,7 @@ export default function UpdateReviewForm({ review, reviews, showCard, setShowCar
     evt.preventDefault();
     setShowCard(!showCard);
     handleUpdateReview(reviewFormData, itemDetail._id, reviewId);
+    setCurrentReview(review.content = reviewFormData.content);
   }
 
   return (

@@ -67,8 +67,8 @@ export default function App() {
   }
 
   async function handleUpdateReview(reviewFormData, itemId, reviewId) {
-    const allItems = await itemsAPI.updateReview(reviewFormData, itemId, reviewId);
-    setItems(allItems);
+    const updatedItems = await itemsAPI.updateReview(reviewFormData, itemId, reviewId);
+    setItems(updatedItems);
   }
 
   return (

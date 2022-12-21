@@ -23,8 +23,8 @@ async function updateReview(req, res) {
     const review = tempItem.reviews.id(req.params.reviewId);
     review.content = req.body.content;
     await tempItem.save();
-    const allItems = await Item.find({});
-    res.json(allItems);
+    const updatedItems = await Item.find({});
+    res.json(updatedItems);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);

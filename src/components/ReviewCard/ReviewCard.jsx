@@ -10,9 +10,11 @@ import {
   MDBCol,
   MDBBtn
 } from 'mdb-react-ui-kit';
+import './ReviewCard.css';
 
 export default function ReviewCard({ review, reviews, itemDetail, handleDeleteReview, handleUpdateReview }) {
   const [showCard, setShowCard] = useState(false);
+  const [currentReview, setCurrentReview] = useState(review);
   const date = new Date(review.createdAt);
   const dateOptions = {
     weekday: 'long',
@@ -24,7 +26,7 @@ export default function ReviewCard({ review, reviews, itemDetail, handleDeleteRe
   return(
     <>
       <MDBCard>
-        <MDBCardBody>
+        <MDBCardBody className='reviewCard'>
           <MDBCardTitle>{review.user}</MDBCardTitle>
           <MDBCardText>
             Rating: {review.rating}
@@ -48,6 +50,7 @@ export default function ReviewCard({ review, reviews, itemDetail, handleDeleteRe
                   showCard={showCard}
                   setShowCard={setShowCard}
                   handleUpdateReview={handleUpdateReview}
+                  setCurrentReview={setCurrentReview}
                 />
                 :
                 <>

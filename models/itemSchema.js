@@ -19,15 +19,6 @@ const reviewSchema = new Schema({
   timestamps: true
 });
 
-
-// reviewSchema.statics.changeContent = function(reviewId) {
-//   return this.findOneAndUpdate(filter, update,
-//     { review: reviewId, content: ''},
-//     { review: reviewId },
-//     { upsert: true, new: true }
-//   );
-// };
-
 const itemSchema = new Schema({
   name: { 
     type: String, 
