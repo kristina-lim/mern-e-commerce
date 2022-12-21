@@ -9,14 +9,20 @@
 }
 
 .OrderDetail .section-heading {
-  width: 100%
+  width: 32.3%;
+  float: right;
+  padding-left: 51vmin;
+  margin-left: 110vmin;
+  margin-top: -177vmin;
+  margin-right: 0;
 }
 
-.OrderDetail .line-item-container {
-  margin-top: 3vmin;
+.OrderDetail > .line-item-container {
+  padding-left: 110vmin;
+  margin-top: -90vmin;
   justify-content: space-between;
   height: calc(100vh - 18vmin);
-  width: 100%;
+  width: 93.8%;
 }
 
 .OrderDetail .total {
