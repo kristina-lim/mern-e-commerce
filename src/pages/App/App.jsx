@@ -10,6 +10,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import ContactPage from '../ContactPage/ContactPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
+import UpdateReviewCard from '../../components/UpdateReviewCard/UpdateReviewCard';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
@@ -65,6 +66,11 @@ export default function App() {
     setReviews(remainingReviews);
   }
 
+  async function handleUpdateReview(reviewFormData, itemId, reviewId) {
+    const allItems = await itemsAPI.updateReview(reviewFormData, itemId, reviewId);
+    setItems(allItems);
+  }
+
   return (
     <main className="App">
       { user ?
@@ -76,7 +82,8 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} />} />
-            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} addReview={addReview} handleAddToOrder={handleAddToOrder} handleDeleteReview={handleDeleteReview} />} />
+            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} items={items} setItems={setItems} reviews={reviews} addReview={addReview} handleAddToOrder={handleAddToOrder} handleDeleteReview={handleDeleteReview} handleUpdateReview={handleUpdateReview} />} />
+            <Route path="/api/items/:itemId/reviews/:reviewId" element={<UpdateReviewCard items={items} reviews={reviews} handleUpdateReview={handleUpdateReview} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>

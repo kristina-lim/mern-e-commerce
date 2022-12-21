@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import UpdateReviewCard from '../UpdateReviewCard/UpdateReviewCard';
 import {
   MDBCard,
   MDBCardBody,
@@ -9,7 +11,8 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 
-export default function ReviewCard({ review, itemId, handleDeleteReview }) {
+export default function ReviewCard({ review, reviews, itemDetail, handleDeleteReview, handleUpdateReview }) {
+  const [showCard, setShowCard] = useState(false);
   const date = new Date(review.createdAt);
   const dateOptions = {
     weekday: 'long',
@@ -34,13 +37,26 @@ export default function ReviewCard({ review, itemId, handleDeleteReview }) {
           </MDBCardText>
           <MDBRow>
             <MDBCol>
-              <MDBBtn color='warning'>
+              <MDBBtn color='warning' onClick={() => setShowCard(!showCard)}>
                 Edit
               </MDBBtn>
+              { showCard ?
+                <UpdateReviewCard 
+                  review={review}
+                  reviews={reviews}
+                  itemDetail={itemDetail}
+                  showCard={showCard}
+                  setShowCard={setShowCard}
+                  handleUpdateReview={handleUpdateReview}
+                />
+                :
+                <>
+                </>
+              }
             </MDBCol>
             <MDBCol>
-              <MDBBtn color='danger' onClick={() => handleDeleteReview(itemId, review._id)}>
-                Delete
+              <MDBBtn color='danger' onClick={() => handleDeleteReview(itemDetail._id, review._id)}>
+                Delete 
               </MDBBtn>
             </MDBCol>
           </MDBRow>

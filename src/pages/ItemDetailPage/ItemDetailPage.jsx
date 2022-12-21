@@ -4,9 +4,10 @@ import { MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdb-react-ui-kit';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import './ItemDetailPage.css';
 
-export default function ItemDetailPage({ items, handleAddToOrder, addReview, handleDeleteReview }) {
+export default function ItemDetailPage({ items, handleAddToOrder, addReview, handleDeleteReview, handleUpdateReview }) {
   const [itemDetail, setItemDetail] = useState(null);
   const {itemId} = useParams();
+  const {reviewId} = useParams();
   const [newReview, setNewReview] = useState({
     content: '',
     rating: '⭐️⭐️⭐️'
@@ -88,7 +89,10 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview, han
             {itemDetail.reviews.map((review, idx) => (
               <ReviewCard
                 review={review}
-                itemId={itemId}
+                reviews={itemDetail.reviews}
+                itemDetail={itemDetail}
+                reviewId={reviewId}
+                handleUpdateReview={handleUpdateReview}
                 handleDeleteReview={handleDeleteReview}
                 key={idx}
               />

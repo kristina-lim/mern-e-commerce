@@ -4,6 +4,7 @@ module.exports = {
   index,
   show,
   createReview,
+  updateReview,
   deleteReview
 };
 
@@ -14,6 +15,20 @@ async function deleteReview(req, res) {
   item.reviews.splice(indexReview, 1);
   await item.save();
   res.json(item);
+}
+
+async function updateReview(req, res) {
+  try {
+    const tempItem = await Item.findById(req.params.id);
+    // const review = tempItem.reviews.id(req.params.reviewId);
+    // review.content = req.body.content;
+    await tempItem.save();
+    const allItems = await Item.find({});
+    res.json(allItems);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
 }
 
 async function createReview(req, res) {

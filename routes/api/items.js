@@ -8,6 +8,8 @@ router.get('/', itemsCtrl.index);
 router.get('/:id', itemsCtrl.show);
 // POST /api/items/:id/reviews
 router.post('/:id/reviews', itemsCtrl.createReview);
+// UPDATE /api/items/:id/reviews/:id
+router.put('/:id/reviews/:reviewId', itemsCtrl.updateReview);
 // DELETE /api/items/:id/reviews/:id
 router.delete('/:id/reviews/:reviewId', itemsCtrl.deleteReview);
 

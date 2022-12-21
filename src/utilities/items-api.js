@@ -14,6 +14,10 @@ export function createReview(reviewData, itemId) {
   return sendRequest(`${BASE_URL}/${itemId}/reviews`, 'POST', reviewData);
 }
 
+export function updateReview(reviewFormData, itemId, reviewId) {
+  return sendRequest(`${BASE_URL}/${itemId}/reviews/${reviewId}`, 'PUT', reviewFormData);
+}
+
 export function deleteReview(itemId, reviewId) {
   return sendRequest(`${BASE_URL}/${itemId}/reviews/${reviewId}`, 'DELETE');
 }
