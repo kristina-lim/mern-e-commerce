@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  MDBCardBody,
   MDBTextArea,
   MDBBtn
 } from 'mdb-react-ui-kit';
@@ -25,11 +24,9 @@ export default function UpdateReviewForm({ review, reviews, showCard, setShowCar
 
   return (
     <form onSubmit={handleReviewSubmit}>
-        <MDBCardBody>
           <label>Edit review:</label>
-          <MDBTextArea name='content' type='text' rows={4} value={reviewFormData.content} onChange={(evt) => setReviewFormData({ content: evt.target.value })} />
+          <MDBTextArea className='textarea' name='content' type='text' rows={4} value={reviewFormData.content} onChange={(evt) => setReviewFormData({ content: evt.target.value })} />
           <MDBBtn type='submit'>Edit Review</MDBBtn>
-        </MDBCardBody>
     </form>
   )
 }

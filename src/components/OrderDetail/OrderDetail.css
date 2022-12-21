@@ -14,7 +14,6 @@
 .OrderDetail .line-item-container {
   margin-top: 3vmin;
   justify-content: flex-start;
-  /* height: 100vh; */
   height: calc(100vh - 18vmin);
   width: 100%;
 }

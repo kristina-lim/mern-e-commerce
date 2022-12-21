@@ -6,7 +6,7 @@ import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import './NewOrderPage.css'
 
-export default function NewOrderPage({ user, setUser, cart, handleAddToOrder, handleChangeQty, handleCheckout }) {
+export default function NewOrderPage({ cart, handleAddToOrder, handleChangeQty, handleCheckout }) {
   const [costumeItems, setCostumeItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const categoriesRef = useRef([]);

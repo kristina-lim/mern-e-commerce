@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdb-react-ui-kit';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import './ItemDetailPage.css';
 
-export default function ItemDetailPage({ items, handleAddToOrder, addReview, handleDeleteReview, handleUpdateReview }) {
+export default function ItemDetailPage({ items, cart, handleAddToOrder, handleChangeQty, handleCheckout, addReview, handleDeleteReview, handleUpdateReview }) {
   const [itemDetail, setItemDetail] = useState(null);
   const {itemId} = useParams();
   const {reviewId} = useParams();
@@ -36,6 +37,11 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview, han
     <>
       {itemDetail ? 
         <>
+          <OrderDetail
+            order={cart}
+            handleChangeQty={handleChangeQty}
+            handleCheckout={handleCheckout}
+          />
           <MDBRow className='mb-3 ItemDetail'>
             <MDBCol lg='4 name'>
               {itemDetail.name}
@@ -52,7 +58,6 @@ export default function ItemDetailPage({ items, handleAddToOrder, addReview, han
           </MDBRow>
           <form onSubmit={(evt) => handleAddReview(evt, itemDetail._id)}>
             <MDBRow className='mb-4'>
-              
             </MDBRow>
             <MDBInput 
               name='content'
