@@ -1,4 +1,12 @@
-.CostumeList {
+/* .CostumeList {
   margin: 3vmin 0;
   padding: 3vmin;
+} */
+.CostumeList {
+  background-color: var(--tan-1);
+  border: .1vmin solid var(--tan-3);
+  border-radius: 2vmin;
+  margin: 3vmin 0;
+  padding: 3vmin;
+  overflow-y: scroll;
 }

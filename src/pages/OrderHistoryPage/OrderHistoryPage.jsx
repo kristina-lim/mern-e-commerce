@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import * as ordersAPI from '../../utilities/orders-api';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import OrderList from '../../components/OrderList/OrderList';
+import './OrderHistoryPage.css';
 
 
 export default function OrderHistoryPage({ user, setUser }) {
@@ -19,6 +21,9 @@ export default function OrderHistoryPage({ user, setUser }) {
 
   return (
     <main className="OrderHistoryPage">
+      <aside>
+        <Link to='/orders/new' className='button btn-sm'>NEW ORDER</Link>
+      </aside>
       {/* Render an OrderList component (needs to be coded) */}
       <OrderList
         orders={orders}

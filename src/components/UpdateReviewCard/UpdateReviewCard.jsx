@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  MDBCardText,
   MDBCardBody,
   MDBTextArea,
   MDBBtn
@@ -14,13 +13,7 @@ export default function UpdateReviewForm({ review, reviews, showCard, setShowCar
     rating: '',
     content: ''
   });
-  const date = new Date(review.createdAt);
-  const dateOptions = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric'
-  }
+
   if (!updatedReview) return null;
   
   function handleReviewSubmit(evt) {

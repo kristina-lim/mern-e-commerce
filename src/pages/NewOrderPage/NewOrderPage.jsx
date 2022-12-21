@@ -29,7 +29,7 @@ export default function NewOrderPage({ user, setUser, cart, handleAddToOrder, ha
           activeCat={activeCat}
           setActiveCat={setActiveCat}
         />
-        <Link to='orders' className='buton btn-sm'>PREVIOUS ORDERS</Link>
+        <Link to='orders' className='button btn-sm'>PREVIOUS ORDERS</Link>
       </aside>
       <CostumeList
         costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
@@ -41,34 +41,5 @@ export default function NewOrderPage({ user, setUser, cart, handleAddToOrder, ha
         handleCheckout={handleCheckout}
       />
     </main>
-    // <div className='shop-container'>
-    // <div className="shop-row">
-    //   <div className="shop-col">
-    //     <h2>Category</h2>
-    //     <CategoryList
-    //       categories={categoriesRef.current}
-    //       activeCat={activeCat}
-    //       setActiveCat={setActiveCat}
-    //     />
-    //     <Link to='/orders' className='button btn-sm'>PREVIOUS ORDERS</Link>
-    //   </div>
-    //   <div className="shop-col">
-    //     <div className="shop-costumes">
-    //       <CostumeList
-    //         costumeItems={costumeItems.filter(item => item.category.name === activeCat)}
-    //         handleAddToOrder={handleAddToOrder}
-    //       />
-    //     </div>
-    //     <div className='order-row'>
-    //       <div className='order-col'></div>
-    //         <OrderDetail
-    //           order={cart}
-    //           handleChangeQty={handleChangeQty}
-    //           handleCheckout={handleCheckout}
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }

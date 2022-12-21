@@ -14,7 +14,7 @@ import UpdateReviewCard from '../../components/UpdateReviewCard/UpdateReviewCard
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
-// import Footer from '../../components/Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -90,7 +90,7 @@ export default function App() {
           {showCart &&
             <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout} />
           }
-          {/* <Footer /> */}
+          <Footer />
         </>
         :
         <AuthPage setUser={setUser}/>
