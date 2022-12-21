@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import {
-  MDBCard,
+  MDBCardText,
   MDBCardBody,
   MDBTextArea,
   MDBBtn
@@ -15,6 +14,13 @@ export default function UpdateReviewForm({ review, reviews, showCard, setShowCar
     rating: '',
     content: ''
   });
+  const date = new Date(review.createdAt);
+  const dateOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  }
   if (!updatedReview) return null;
   
   function handleReviewSubmit(evt) {
@@ -27,18 +33,6 @@ export default function UpdateReviewForm({ review, reviews, showCard, setShowCar
     <form onSubmit={handleReviewSubmit}>
         <MDBCardBody>
           <label>Edit review:</label>
-          <select
-            name='rating'
-            value={ reviewFormData.rating }
-            onChange={(evt) => setReviewFormData({ rating: evt.target.value })}
-            required
-          >
-            <option value='⭐️'>⭐️</option>
-            <option value='⭐️⭐️'>⭐️⭐️</option>
-            <option value='⭐️⭐️⭐️'>⭐️⭐️⭐️</option>
-            <option value='⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️</option>
-            <option value='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</option>
-          </select>
           <MDBTextArea name='content' type='text' rows={4} value={reviewFormData.content} onChange={(evt) => setReviewFormData({ content: evt.target.value })} />
           <MDBBtn type='submit'>Edit Review</MDBBtn>
         </MDBCardBody>

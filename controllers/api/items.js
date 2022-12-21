@@ -20,8 +20,8 @@ async function deleteReview(req, res) {
 async function updateReview(req, res) {
   try {
     const tempItem = await Item.findById(req.params.id);
-    // const review = tempItem.reviews.id(req.params.reviewId);
-    // review.content = req.body.content;
+    const review = tempItem.reviews.id(req.params.reviewId);
+    review.content = req.body.content;
     await tempItem.save();
     const allItems = await Item.find({});
     res.json(allItems);
