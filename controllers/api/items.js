@@ -34,6 +34,7 @@ async function updateReview(req, res) {
 async function createReview(req, res) {
   try {
     req.body.user = req.user._id;
+    req.body.userName = req.user.name;
     const item = await Item.findById(req.params.id);
     item.reviews.push(req.body);
     await item.save();

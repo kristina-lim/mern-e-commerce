@@ -1,0 +1,13 @@
+.about-bg {
+  background-image: url(https://i.imgur.com/DKLWZyt.png);
+  height: 92vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+.about-card {
+  display: flex;
+  
+}

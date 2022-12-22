@@ -15,6 +15,7 @@ const reviewSchema = new Schema({
     ref: 'User',
     required: true
   },
+  userName: { type: String },
 }, {
   timestamps: true
 });

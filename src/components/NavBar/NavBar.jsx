@@ -45,11 +45,6 @@ export default function NavBar({ user, setUser }) {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-                <MDBNavbarLink href='/contact'>
-                  <MDBIcon fas icon='phone-alt' /> Contact
-                </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='/orders/new'>
                 <MDBIcon fas icon='mask' /> Costumes
               </MDBNavbarLink>
