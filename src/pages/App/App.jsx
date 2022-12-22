@@ -13,7 +13,7 @@ import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import UpdateReviewCard from '../../components/UpdateReviewCard/UpdateReviewCard';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
-import Footer from '../../components/Footer/Footer';
+// import Footer from '../../components/Footer/Footer';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -71,22 +71,22 @@ export default function App() {
   }
 
   return (
-    <main className="App">
+    <main className='App'>
       { user ?
         <>
           <NavBar user={user} setUser={setUser} order={cart} showCart={showCart} setShowCart={setShowCart} />
           <Routes>
             {/* route components in here */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser} cart={cart} handleAddToOrder={handleAddToOrder} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout} />} />
-            <Route path="/api/items/:itemId" element={<ItemDetailPage user={user} setUser={setUser} cart={cart} items={items} setItems={setItems} reviews={reviews} addReview={addReview} handleAddToOrder={handleAddToOrder} handleDeleteReview={handleDeleteReview} handleUpdateReview={handleUpdateReview} />} />
-            <Route path="/api/items/:itemId/reviews/:reviewId" element={<UpdateReviewCard items={items} reviews={reviews} handleUpdateReview={handleUpdateReview} />} />
-            <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
-            <Route path="/*" element={<Navigate to="/orders/new" />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/contact' element={<ContactPage />} />
+            <Route path='/orders/new' element={<NewOrderPage user={user} setUser={setUser} cart={cart} handleAddToOrder={handleAddToOrder} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout} />} />
+            <Route path='/api/items/:itemId' element={<ItemDetailPage user={user} setUser={setUser} cart={cart} items={items} setItems={setItems} reviews={reviews} addReview={addReview} handleAddToOrder={handleAddToOrder} handleDeleteReview={handleDeleteReview} handleUpdateReview={handleUpdateReview} />} />
+            <Route path='/api/items/:itemId/reviews/:reviewId' element={<UpdateReviewCard items={items} reviews={reviews} handleUpdateReview={handleUpdateReview} />} />
+            <Route path='/orders' element={<OrderHistoryPage user={user} setUser={setUser} />} />
+            <Route path='/*' element={<Navigate to='/orders/new' />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </>
         :
         <AuthPage setUser={setUser}/>

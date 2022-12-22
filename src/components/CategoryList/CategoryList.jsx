@@ -4,7 +4,7 @@ import './CategoryList.css';
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
   const cats = categories.map(cat =>
     <MDBBtn
-      color='warning'
+      color='danger'
       key={cat}
       className={cat === activeCat ? 'active' : ''}
       onClick={() => setActiveCat(cat)}
@@ -14,7 +14,7 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
   );
 
   return (
-    <ul className="CategoryList">
+    <ul className='CategoryList'>
       {cats}
     </ul>
   );

@@ -20,7 +20,7 @@ export default function OrderHistoryPage({ user, setUser }) {
   }, []);
 
   return (
-    <main className="OrderHistoryPage">
+    <main className='OrderHistoryPage'>
       <aside>
         <Link to='/orders/new' className='button btn-sm'>NEW ORDER</Link>
       </aside>

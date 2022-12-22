@@ -10,7 +10,7 @@ export default function CostumeList({ costumeItems, handleAddToOrder }) {
     />
   );
   return (
-    <main className="CostumeList">
+    <main className='CostumeList'>
       {items}
     </main>
   );

@@ -25,7 +25,7 @@ export default function ReviewCard({ review, reviews, itemDetail, handleDeleteRe
   
   return(
     <>
-      <MDBCard>
+      <MDBCard alignment='center'>
         <MDBCardBody className='reviewCard'>
           <MDBCardTitle>{review.user}</MDBCardTitle>
           <MDBCardText>
@@ -39,7 +39,7 @@ export default function ReviewCard({ review, reviews, itemDetail, handleDeleteRe
           </MDBCardText>
           <MDBRow>
             <MDBCol>
-              <MDBBtn color='warning' onClick={() => setShowCard(!showCard)}>
+              <MDBBtn color='info' onClick={() => setShowCard(!showCard)}>
                 Edit
               </MDBBtn>
               { showCard ?

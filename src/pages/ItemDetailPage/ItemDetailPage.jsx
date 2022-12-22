@@ -37,11 +37,6 @@ export default function ItemDetailPage({ items, cart, handleAddToOrder, handleCh
     <>
       {itemDetail ? 
         <>
-          <OrderDetail
-            order={cart}
-            handleChangeQty={handleChangeQty}
-            handleCheckout={handleCheckout}
-          />
           <MDBRow className='mb-3 ItemDetail'>
             <MDBCol lg='4 name'>
               {itemDetail.name}
@@ -51,11 +46,16 @@ export default function ItemDetailPage({ items, cart, handleAddToOrder, handleCh
             </MDBCol>
             <MDBCol lg='4 buy'>
               <span>${itemDetail.price}</span>
-              <button className="btn-sm" onClick={() => handleAddToOrder(itemDetail._id)}>
+              <button className='btn-sm' onClick={() => handleAddToOrder(itemDetail._id)}>
                 ADD
               </button>
             </MDBCol>
           </MDBRow>
+          <OrderDetail
+            order={cart}
+            handleChangeQty={handleChangeQty}
+            handleCheckout={handleCheckout}
+          />
           <form onSubmit={(evt) => handleAddReview(evt, itemDetail._id)}>
             <MDBRow className='mb-4'>
             </MDBRow>

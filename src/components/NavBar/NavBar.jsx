@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import {
   MDBNavbar,
@@ -9,14 +8,10 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBNavbarToggler,
-  MDBCollapse,
-  MDBDropdown,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBDropdownItem,
+  MDBCollapse
 } from 'mdb-react-ui-kit';
 
-export default function NavBar({ user, setUser, showCart, setShowCart }) {
+export default function NavBar({ user, setUser }) {
   const [showNavRight, setShowNavRight] = useState(false);
 
   function handleLogOut() {
@@ -41,37 +36,32 @@ export default function NavBar({ user, setUser, showCart, setShowCart }) {
           <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
             <MDBNavbarItem>
               <MDBNavbarLink>
-                <MDBIcon far icon="star" /> Welcome, {user.name}! <MDBIcon far icon="star" />
+                <MDBIcon far icon='star' /> Welcome, {user.name}! <MDBIcon far icon="star" />
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link'>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link href='/about'><MDBIcon fas icon="info-circle" /> About</MDBDropdownItem>
-                  <MDBDropdownItem link href='/contact'><MDBIcon fas icon="phone-alt" /> Contact</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              <MDBNavbarLink href='/about'>
+                <MDBIcon fas icon='info-circle' /> About
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+                <MDBNavbarLink href='/contact'>
+                  <MDBIcon fas icon='phone-alt' /> Contact
+                </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='/orders/new'>
-                <MDBIcon fas icon="mask" /> Costumes {/* or shop */}
+                <MDBIcon fas icon='mask' /> Costumes
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href='/orders'>
-                <MDBIcon fas icon="history" /> Order History
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink onClick={() => setShowCart(!showCart)}>
-                <MDBIcon fas icon="shopping-cart" />
+                <MDBIcon fas icon='history' /> Order History
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink to='' onClick={handleLogOut}>
-                <MDBIcon fas icon="sign-out-alt" /> Log Out
+                <MDBIcon fas icon='sign-out-alt' /> Log Out
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
