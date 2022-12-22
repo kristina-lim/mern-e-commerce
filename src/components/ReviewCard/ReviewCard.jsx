@@ -25,49 +25,45 @@ export default function ReviewCard({ user, review, reviews, itemDetail, handleDe
   
   return(
     <>
-      {/* {user._id !== review.user ? */}
-        <MDBCard alignment='center'>
-          <MDBCardBody className='reviewCard'>
-            <MDBCardTitle>{review.userName}</MDBCardTitle>
-            <MDBCardText>
-              Rating: {review.rating}
-            </MDBCardText>
-            <MDBCardText>
-              {review.content}
-            </MDBCardText>
-            <MDBCardText>
-              Created on {date.toLocaleDateString(undefined, dateOptions)}
-            </MDBCardText>
-            <MDBRow>
-              <MDBCol>
-                <MDBBtn color='info' onClick={() => setShowCard(!showCard)}>
-                  Edit
-                </MDBBtn>
-                { showCard ?
-                  <UpdateReviewCard 
-                    review={review}
-                    reviews={reviews}
-                    itemDetail={itemDetail}
-                    showCard={showCard}
-                    setShowCard={setShowCard}
-                    handleUpdateReview={handleUpdateReview}
-                    setCurrentReview={setCurrentReview}
-                  />
-                :
-                ''
-                }
-              </MDBCol>
-              <MDBCol>
-                <MDBBtn color='danger' onClick={() => handleDeleteReview(itemDetail._id, review._id)}>
-                  Delete 
-                </MDBBtn>
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
-      {/* :
-      ''
-      } */}
+      <MDBCard alignment='center'>
+        <MDBCardBody className='reviewCard'>
+          <MDBCardTitle>{review.userName}</MDBCardTitle>
+          <MDBCardText>
+            Rating: {review.rating}
+          </MDBCardText>
+          <MDBCardText>
+            {review.content}
+          </MDBCardText>
+          <MDBCardText>
+            Created on {date.toLocaleDateString(undefined, dateOptions)}
+          </MDBCardText>
+          <MDBRow>
+            <MDBCol>
+              <MDBBtn color='info' onClick={() => setShowCard(!showCard)}>
+                Edit
+              </MDBBtn>
+              { showCard ?
+                <UpdateReviewCard 
+                  review={review}
+                  reviews={reviews}
+                  itemDetail={itemDetail}
+                  showCard={showCard}
+                  setShowCard={setShowCard}
+                  handleUpdateReview={handleUpdateReview}
+                  setCurrentReview={setCurrentReview}
+                />
+              :
+              ''
+              }
+            </MDBCol>
+            <MDBCol>
+              <MDBBtn color='danger' onClick={() => handleDeleteReview(itemDetail._id, review._id)}>
+                Delete 
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
     </>
   ) 
 }
