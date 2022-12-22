@@ -51,11 +51,6 @@ export default function ItemDetailPage({ items, cart, handleAddToOrder, handleCh
               </button>
             </MDBCol>
           </MDBRow>
-          <OrderDetail
-            order={cart}
-            handleChangeQty={handleChangeQty}
-            handleCheckout={handleCheckout}
-          />
           <form onSubmit={(evt) => handleAddReview(evt, itemDetail._id)}>
             <MDBRow className='mb-4'>
             </MDBRow>
