@@ -10,7 +10,7 @@
 
   ## :pencil: Description
 
-  OOTD is a good way to keep track of what the user has worn throughout the week. A user can add a post, add a link to the photo, write what they did on that day and describe their outfit and paste a link of their clothing item. The user can also look at other users' post by going to the homepage in order to get some outfit ideas. In case there are spelling errors, or the user wants to add more information, they can edit their entry. If they want to remove it completely, they can remove it. 
+  Universe's Wardrobe is a Steven Universe themed costume shop. The visitor will be able to create a new account and be able to shop for costumes. Once they are done shopping, the user will be able to check out. In the case that the user wants to look at their past order histories, they are able to check. Users will also be able to make a review of the costume to give feedback to other users. They will also be able to edit and remove their reviews. Happy costume shopping!
 
   </div>
 
